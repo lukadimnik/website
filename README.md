@@ -1,6 +1,6 @@
 # lukadimnik.com
 
-Personal website for Luka Dimnik — engineering manager and software engineer. About me, how I work, and how to get in touch, with a portfolio/selected work section to grow over time.
+Personal website for Luka Dimnik — engineering manager and software engineer. A narrative "whoami" landing page, a Kubernetes homelab case study, and a detailed résumé, all sharing one terminal-inspired design system.
 
 Static site, no build step, no framework.
 
@@ -8,14 +8,18 @@ Static site, no build step, no framework.
 
 ```
 .
-├── index.html      # Page content and structure
+├── index.html      # Landing page — whoami, how I work, tinkering, contact
+├── homelab.html    # Kubernetes homelab case study
+├── resume.html     # Detailed résumé / experience page
 ├── css/
 │   └── styles.css  # All styling (design tokens, layout, components)
 ├── js/
-│   └── main.js     # Footer year, scroll nav state, reveal-on-scroll animations
-├── assets/         # Images and other static assets
-└── Dockerfile      # nginx:alpine, serves the site as-is
+│   └── main.js     # Nav scroll state, typed-line effect, count-up metrics, reveal-on-scroll
+├── assets/         # Images and other static assets — add a headshot + homelab screenshot here
+└── Dockerfile       # nginx:alpine, serves the site as-is
 ```
+
+Each page has placeholder image slots (dashed "Add your headshot" / "Add architecture diagram" boxes) marked with an HTML comment showing the `<img>` tag to swap in once real photos are dropped into `assets/`.
 
 ## Local development
 

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kubernetes Homelab — Case Study · Luka Dimnik</title>
+<meta name="description" content="Case study: a self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
+<meta name="theme-color" content="#181f1a" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318231c'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-size='36' font-family='monospace' font-weight='700' fill='%237bdc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="u">luka</span><span class="at">@</span><span class="h">dimnik</span><span class="at">:~$</span><span class="cur"></span></a>
+    <nav class="nav-links">
+      <a href="index.html#work"><span class="hash">#</span>tinkering</a>
+      <a href="index.html#contact" class="btn nav-cta" style="padding:9px 16px;">Say hi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="index.html#work" class="cs-back reveal in"><span class="arr">◂</span> back to tinkering</a>
+      <div class="kicker reveal" style="margin-top:26px;"><span class="sym">➜</span> ~/tinkering/k8s-homelab · git show</div>
+      <h1 class="cs-title reveal" data-d="1">Kubernetes Homelab</h1>
+      <p class="cs-sub reveal" data-d="2">A self-hosted, <strong>enterprise-grade GitOps platform</strong> — built to keep production instincts sharp: immutable infrastructure, declarative everything, secure secrets, and monitoring that would pass a real on-call rotation.</p>
+      <div class="cs-facts reveal" data-d="3">
+        <div class="f"><div class="k">// role</div><div class="v">Solo — design &amp; build</div></div>
+        <div class="f"><div class="k">// timeline</div><div class="v">2026 — present</div></div>
+        <div class="f"><div class="k">// where</div><div class="v">Helsinki, FI · self-hosted</div></div>
+        <div class="f"><div class="k">// status</div><div class="v acc">● live &amp; evolving</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAGRAM ============ -->
+  <section class="block tight" style="padding-top:0;">
+    <div class="wrap reveal">
+      <div class="cs-diagram">
+        <div class="bar"><span class="accent">▸</span> architecture.excalidraw — add diagram or cluster screenshot</div>
+        <div class="stage">
+          <div class="slot-ph"><span><span class="ic">◫</span>Add architecture diagram<br/>or a Grafana / cluster screenshot</span></div>
+          <!-- swap the div above for: <img src="assets/homelab-diagram.png" alt="Homelab architecture diagram" /> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">01</span><h2>// overview</h2><span class="rule"></span></div>
+      <div class="cs-prose reveal">
+        <p>Most homelabs are a pile of <code>docker run</code> commands no one can reproduce. I wanted the opposite: a platform run exactly the way a disciplined org would run production — so the muscle memory transfers directly to the platform work I do for teams.</p>
+        <p>The result is an <strong>immutable, declarative</strong> Kubernetes platform where the Git repository is the single source of truth. Nothing is changed by hand. Push to <code>main</code>, and the cluster reconciles itself toward the desired state — including its own OS, its workloads, its monitoring, and its secrets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY I BUILT IT THIS WAY ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">02</span><h2>// why bother</h2><span class="rule"></span></div>
+      <div class="cs-prose reveal">
+        <p>I could run everything on one box with a docker-compose file and call it a day. I don't, on purpose. As an EM, I don't get to spend every day heads-down in Terraform and Kubernetes manifests — so I built myself a place where I still do. Every constraint I add here (no SSH, no manual kubectl apply, no plaintext secrets) is one I'd defend in a design review at work, and it keeps those instincts sharp for when a team actually needs them.</p>
+        <p>It's also just genuinely fun to be the one holding the pager for your own infrastructure. When something breaks at 11pm, there's no one else to escalate to — which has taught me more about failure modes than any postmortem I've read.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT I BUILT ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">03</span><h2>// what I built</h2><span class="rule"></span></div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="n">01 · GitOps &amp; declarative infra</div>
+          <h4>The repo is the cluster</h4>
+          <p>Flux reconciles the live cluster against Git continuously. Helm releases are standardized and version-pinned; environments are provisioned through reusable Terraform modules rather than ad-hoc setup.</p>
+        </div>
+        <div class="pillar reveal" data-d="1">
+          <div class="n">02 · Immutable OS</div>
+          <h4>Talos Linux, no SSH</h4>
+          <p>The nodes run Talos / k3s — an API-managed, immutable OS with no shell to drift. Rebuilding a node is a declarative operation, not a midnight debugging session.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="n">03 · Observability</div>
+          <h4>End-to-end monitoring</h4>
+          <p>A complete monitoring and alerting architecture built on Prometheus and Grafana — metrics, dashboards and alert rules designed to surface problems the way they would on a real on-call rotation.</p>
+        </div>
+        <div class="pillar reveal" data-d="1">
+          <div class="n">04 · Secrets &amp; automation</div>
+          <h4>Secure &amp; self-maintaining</h4>
+          <p>Secrets are encrypted in Git with SOPS. Renovate keeps images and charts current, with AI-assisted changelog review on the updates — so maintenance is continuous and low-touch instead of a quarterly scramble.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUTCOMES ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">04</span><h2>// what it proves</h2><span class="rule"></span></div>
+      <div class="outcomes">
+        <div class="outcome reveal">
+          <div class="num"><span class="unit">0</span> manual</div>
+          <div class="lbl">Zero hand-applied changes — every deploy flows through Git and Flux reconciliation.</div>
+        </div>
+        <div class="outcome reveal" data-d="1">
+          <div class="num">100<span class="unit">%</span></div>
+          <div class="lbl">Reproducible: the entire platform — OS, workloads, monitoring — is declared as code.</div>
+        </div>
+        <div class="outcome reveal" data-d="2">
+          <div class="num">auto<span class="unit">·</span>updated</div>
+          <div class="lbl">Renovate + AI-assisted changelog review keep images and charts continuously current.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">05</span><h2>cat stack.txt</h2><span class="rule"></span></div>
+      <div class="cs-prose reveal" style="max-width:820px;">
+        <div class="codeblock">
+<span class="c"># platform</span><br/>
+os/runtime    = <span class="k">Talos Linux</span> · <span class="k">k3s</span> · <span class="k">Kubernetes</span><br/>
+gitops        = <span class="k">Flux</span> · <span class="k">Helm</span><br/>
+provisioning  = <span class="k">Terraform</span> (reusable modules)<br/>
+ci/cd         = <span class="k">GitHub Actions</span><br/><br/>
+<span class="c"># operations</span><br/>
+observability = <span class="k">Prometheus</span> · <span class="k">Grafana</span><br/>
+secrets       = <span class="k">SOPS</span> (encrypted-in-git)<br/>
+automation    = <span class="k">Renovate</span> · AI changelog review
+        </div>
+        <div class="chips" style="margin-top:24px;">
+          <span class="chip">Talos Linux</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT'S NEXT ============ -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">06</span><h2>// what's next</h2><span class="rule"></span></div>
+      <div class="tl reveal">
+        <div class="tl-row">
+          <div class="tl-when">backlog</div>
+          <div class="tl-main"><h5>Chaos testing</h5><p>Deliberately kill nodes and services to see whether the reconciliation story holds up as well as I think it does.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">backlog</div>
+          <div class="tl-main"><h5>Cost &amp; power tracking</h5><p>A small dashboard for what this hobby actually costs to run — because eventually someone's going to ask.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">someday</div>
+          <div class="tl-main"><h5>Multi-cluster</h5><p>A second, smaller cluster to practice cross-cluster failover — the kind of thing you only get to do for real once.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2 class="reveal">Want this discipline<br/><span class="accent">on your platform?</span></h2>
+      <p class="lede reveal" data-d="1">This is how I approach real systems too — declarative, observable, reproducible.</p>
+      <div class="contact-links reveal" data-d="2">
+        <a class="clink" href="mailto:luka.dimnik@protonmail.com">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
+        <a class="clink" href="https://github.com/lukadimnik" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13.5 6-3 12"/></svg>
+          GitHub
+        </a>
+        <a class="clink" href="index.html"><span class="arr">◂</span> Back to site</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Luka Dimnik — built from a terminal.</span>
+    <a href="index.html" class="mono">luka@dimnik:~$ <span class="accent">cd ~</span></a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

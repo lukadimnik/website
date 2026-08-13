@@ -1,126 +1,198 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luka Dimnik — Engineering Manager & Software Engineer</title>
-    <meta
-      name="description"
-      content="Luka Dimnik — Engineering Manager and Software Engineer based in Helsinki. I lead teams through messy domains, mid-stream pivots, and legacy codebases."
-    />
-    <meta name="theme-color" content="#0b0d12" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luka Dimnik — Engineering Manager & hands-on tinkerer</title>
+<meta name="description" content="Luka Dimnik — Engineering Manager based in Helsinki. A nerd at heart who likes to tinker, untangle messy systems, and ship software that actually works." />
+<meta name="theme-color" content="#181f1a" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Luka Dimnik — Engineering Manager & Software Engineer" />
-    <meta
-      property="og:description"
-      content="I lead engineering teams through messy domains, mid-stream pivots, and legacy codebases — and ship what was promised."
-    />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Luka Dimnik — Engineering Manager & hands-on tinkerer" />
+<meta property="og:description" content="A nerd at heart who likes to tinker, untangle messy systems, and ship software that actually works." />
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c5cff'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='34' font-family='sans-serif' font-weight='700' fill='white'%3EL%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <header class="nav" id="nav">
-      <div class="container nav__inner">
-        <a class="nav__logo" href="#top">
-          <span class="nav__logo-mark">L</span>
-          <span class="nav__logo-text">Luka Dimnik</span>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318231c'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-size='36' font-family='monospace' font-weight='700' fill='%237bdc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="u">luka</span><span class="at">@</span><span class="h">dimnik</span><span class="at">:~$</span><span class="cur"></span></a>
+    <nav class="nav-links">
+      <a href="#about"><span class="hash">#</span>whoami</a>
+      <a href="#how"><span class="hash">#</span>how-i-work</a>
+      <a href="#work"><span class="hash">#</span>tinkering</a>
+      <a href="#contact" class="btn nav-cta" style="padding:9px 16px;">Say hi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="typed-wrap reveal in" data-type="whoami"></div>
+        <h1 class="hero-name reveal" data-d="1">Luka Dimnik<span class="blink">_</span></h1>
+        <p class="lede-xl reveal" data-d="2">A <span class="accent">hands-on engineering manager</span> — nerd at heart, still tinkering, still shipping.</p>
+        <p class="hero-lede reveal" data-d="3">I lead engineering teams, and I never put the keyboard down. The fun part, for me, has always been the same: taking something tangled — a team going through change, an undocumented legacy system — and turning it into something that works, and holds up.</p>
+        <div class="hero-cta reveal" data-d="4">
+          <a href="#work" class="btn solid">See what I tinker on <span class="arr">▸</span></a>
+          <a href="#contact" class="btn">Say hi</a>
+        </div>
+        <div class="hero-meta reveal" data-d="4" style="margin-top:24px;">
+          <span class="accent">◴</span><span>Helsinki, Finland · remote-friendly</span>
+        </div>
+      </div>
+
+      <div class="reveal" data-d="3">
+        <div class="shot-card">
+          <div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">~/luka.jpg</span></div>
+          <div class="shot-stage">
+            <div class="slot-ph"><span><span class="ic">◳</span>Add your headshot here<br/>(square works best)</span></div>
+            <!-- swap the div above for: <img src="assets/luka.jpg" alt="Luka Dimnik" /> -->
+          </div>
+          <span class="shot-tag">● online</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / WHOAMI ============ -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">01</span><h2>cat whoami.txt</h2><span class="rule"></span></div>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;">
+        <div class="prose-warm reveal">
+          <p>I lead engineering teams, and the part I actually care about is whether the people on them are doing the best work of their careers — and enjoying it. My philosophy is embarrassingly simple: <strong>happy engineers are productive engineers.</strong> I've seen what happens when that's true: a team that holds together through a rough pivot instead of scattering, people who tell you — unprompted — that this is the best job they've had. That's the number I actually track, even if it doesn't fit on a dashboard.</p>
+          <p>I'm a hands-on EM, which mostly means I never got around to putting the keyboard down. I still write code, I run agentic development workflows with Claude Code daily, and I've authored internal Claude skills my team uses for codebase onboarding. I stay close enough to the work to make good technical calls and clear obstacles fast, without getting in the team's way.</p>
+          <p>What actually keeps me here is simpler than any of the job titles: <strong>I like to tinker.</strong> I like the moment a tangled system — or a tangled team — finally clicks into something you can reason about. I like deleting a workaround. I learn by building, breaking, and rebuilding, which is also why I run a Kubernetes homelab in my spare time, and pair agentic workflows with real infrastructure to reverse-engineer decade-old codebases nobody's touched in years.</p>
+          <!-- resume.html not yet polished — re-enable this link when it's ready
+          <a href="resume.html" class="res-link" style="margin-top:6px;">cat resume.html — the detailed CV, with the receipts <span class="arr">▸</span></a>
+          -->
+        </div>
+        <div class="reveal" data-d="1" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="kicker"><span class="sym">▸</span> what I reach for</div>
+          <div class="chips" style="gap:9px;">
+            <span class="chip">TypeScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">Datadog</span>
+          </div>
+          <div class="kicker" style="margin-top:14px;"><span class="sym">▸</span> currently</div>
+          <p class="dim" style="font-size:15px;line-height:1.6;margin:0;">I'm currently leading a team of backend engineers working on card payment transactions at Enfuce. Tinkering with my homelab.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW I WORK ============ -->
+  <section class="block tight" id="how">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">02</span><h2>cat how-i-work.md</h2><span class="rule"></span></div>
+      <div class="principles">
+        <div class="principle reveal">
+          <span class="pn">01</span>
+          <h4>Ship things that work</h4>
+          <p>I'd rather deliver something solid and real than something perfect and theoretical. Working software, in front of people, beats a beautiful plan every time.</p>
+        </div>
+        <div class="principle reveal" data-d="1">
+          <span class="pn">02</span>
+          <h4>Untangle the mess</h4>
+          <p>I'm drawn to the gnarly, undocumented, tightly-coupled systems nobody wants to open — and to the teams going through a rough patch. Making both legible again is the part I genuinely enjoy.</p>
+        </div>
+        <div class="principle reveal" data-d="2">
+          <span class="pn">03</span>
+          <h4>Stay hands-on</h4>
+          <p>Titles change; the urge to tinker doesn't. I lead best when I'm still close to the code, the infra, and the people doing the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK / TINKERING ============ -->
+  <section class="block tight" id="work">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">03</span><h2>ls ~/tinkering</h2><span class="rule"></span></div>
+
+      <a href="homelab.html" class="work-feat reveal" style="text-decoration:none;color:inherit;">
+        <div class="body">
+          <span class="star">★ the one I'm proudest of</span>
+          <h3>My Kubernetes homelab</h3>
+          <p>What happens when "I'll just self-host one thing" gets out of hand. A fully declarative, GitOps-driven platform built the way a real org would — Terraform-provisioned, secret-managed, monitored end to end. It's my playground for staying sharp on Linux, Docker and GitOps, and the clearest window into how I think about infrastructure.</p>
+          <div class="chips">
+            <span class="chip">Talos Linux / k3s</span>
+            <span class="chip">Flux</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Prometheus + Grafana</span>
+            <span class="chip">SOPS</span>
+          </div>
+          <span class="btn" style="align-self:flex-start;margin-top:6px;">Take the tour <span class="arr">▸</span></span>
+        </div>
+        <div class="visual">
+          <div class="slot-ph"><span><span class="ic">◧</span>Add architecture diagram<br/>or homelab screenshot</span></div>
+          <!-- swap the div above for: <img src="assets/homelab.jpg" alt="Homelab dashboard" /> -->
+        </div>
+      </a>
+
+      <div class="work-grid">
+        <div class="card work-card reveal">
+          <div class="tagrow">▸ at work</div>
+          <h4>Made deploys boring</h4>
+          <p>Turned biweekly, hold-your-breath releases into daily, forgettable ones — a CI/CD pipeline the whole team could trust, with isolated dev environments and 14 repos brought along for the ride.</p>
+          <div class="chips"><span class="chip">GitHub Actions</span><span class="chip">Terraform</span></div>
+        </div>
+        <div class="card work-card reveal" data-d="1">
+          <div class="tagrow">▸ at work</div>
+          <h4>Untangled a decade-old monolith</h4>
+          <p>Carved a clean cost service out of a tightly-coupled Java&nbsp;8 monolith using strangler-fig and a lot of patience — reverse-engineering business rules nobody had written down.</p>
+          <div class="chips"><span class="chip">Java</span><span class="chip">Service extraction</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="kicker reveal" style="justify-content:center;margin-bottom:24px;"><span class="sym">➜</span> ~ ./say-hi</div>
+      <h2 class="reveal" data-d="1">Let's build something<br/><span class="accent">that works.</span></h2>
+      <p class="lede reveal" data-d="2">I'm friendliest over email — say hi and tell me what you're building.</p>
+      <div class="contact-links reveal" data-d="3">
+        <a class="clink" href="mailto:luka.dimnik@protonmail.com">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
         </a>
-        <!-- <nav class="nav__links" aria-label="Primary"> -->
-        <!--   <a href="#about">About</a> -->
-        <!--   <a href="#work">Work</a> -->
-        <!--   <a href="#contact">Contact</a> -->
-        <!-- </nav> -->
+        <a class="clink" href="https://github.com/lukadimnik" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13.5 6-3 12"/></svg>
+          GitHub
+        </a>
+        <a class="clink" href="https://linkedin.com/in/lukadimnik/" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7" stroke-width="2"/><path d="M7 7v.01" stroke-width="2.4"/><path d="M11 17v-4a2 2 0 0 1 4 0v4" stroke-width="1.8"/><path d="M11 17v-7" stroke-width="1.8"/></svg>
+          LinkedIn
+        </a>
       </div>
-    </header>
+    </div>
+  </section>
+</main>
 
-    <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="container hero__inner reveal">
-          <p class="hero__eyebrow">Engineering Manager · Software Engineer · Helsinki</p>
-          <h1 class="hero__title">Luka Dimnik</h1>
-          <p class="hero__lede">
-            I lead engineering teams through messy domains, mid-stream pivots, and legacy
-            codebases — and ship what was promised.
-          </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact">Get in touch</a>
-            <a class="btn btn--ghost" href="https://www.linkedin.com/in/lukadimnik/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          </div>
-        </div>
-      </section>
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Luka Dimnik — built from a terminal.</span>
+    <span class="mono">luka@dimnik:~$ <span class="accent">logout</span></span>
+  </div>
+</footer>
 
-      <!-- ABOUT -->
-      <section id="about" class="section">
-        <div class="container">
-          <header class="section__header reveal">
-            <span class="section__kicker">About</span>
-            <h2 class="section__title">How I work</h2>
-          </header>
-
-          <div class="about reveal">
-            <div class="about__bio">
-              <p>
-                I lead engineering teams, and the part I care most about is whether the
-                people on them are doing the best work of their careers — and enjoying it.
-                My philosophy is simple: happy engineers are productive engineers. Every
-                team I've led has been measured in shipped features and migrations, but the
-                wins I'm proudest of are the people ones. The last team I led topped the
-                Culture Amp engagement survey across a ~50-engineer organization, and my
-                current team has run nine months through a founding period and a mid-year
-                domain pivot with zero attrition. Engineers there have told me, unprompted,
-                that they're doing the best work of their careers. I think a lot about what
-                makes that possible: clarity of direction, psychological safety, real
-                investment in growth conversations, and shielding the team from noise
-                without shielding them from context. When those are in place, delivery
-                takes care of itself.
-              </p>
-              <p>
-                I'm a hands-on EM. I still write code, I run agentic development workflows
-                with Claude Code daily, and I've authored internal Claude skills my team
-                uses for codebase onboarding. I stay close enough to the work to make good
-                technical calls and clear obstacles fast, without getting in the team's
-                way. Happy to connect with other engineering leaders, especially on team
-                health, agentic workflows, and legacy modernizations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section">
-        <div class="container contact reveal">
-          <header class="section__header">
-            <span class="section__kicker">Contact</span>
-            <h2 class="section__title">Get in touch</h2>
-          </header>
-          <p class="contact__lede">
-            Reachable for engineering roles, advisory work, and good coffee in Helsinki.
-          </p>
-          <a class="btn btn--primary btn--lg" href="mailto:luka.dimnik@protonmail.com">
-            luka.dimnik@protonmail.com
-          </a>
-          <ul class="socials">
-            <li>
-              <a href="https://www.linkedin.com/in/lukadimnik/" target="_blank" rel="noopener">
-                LinkedIn ↗
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer__inner">
-        <p>© <span id="year"></span> Luka Dimnik</p>
-      </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
+<script src="js/main.js"></script>
+</body>
 </html>
