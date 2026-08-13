@@ -10,6 +10,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Luka Dimnik — Engineering Manager & hands-on tinkerer" />
 <meta property="og:description" content="A nerd at heart who likes to tinker, untangle messy systems, and ship software that actually works." />
+<meta property="og:url" content="https://lukadimnik.com/" />
+<link rel="canonical" href="https://lukadimnik.com/" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318231c'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-size='36' font-family='monospace' font-weight='700' fill='%237bdc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
 
@@ -28,7 +30,7 @@
       <a href="#about"><span class="hash">#</span>whoami</a>
       <a href="#how"><span class="hash">#</span>how-i-work</a>
       <a href="#work"><span class="hash">#</span>tinkering</a>
-      <a href="#contact" class="btn nav-cta" style="padding:9px 16px;">Say hi</a>
+      <a href="#contact" class="btn nav-cta">Say hi</a>
     </nav>
   </div>
 </header>
@@ -47,7 +49,7 @@
           <a href="#work" class="btn solid">See what I tinker on <span class="arr">▸</span></a>
           <a href="#contact" class="btn">Say hi</a>
         </div>
-        <div class="hero-meta reveal" data-d="4" style="margin-top:24px;">
+        <div class="hero-meta reveal" data-d="4">
           <span class="accent">◴</span><span>Helsinki, Finland · remote-friendly</span>
         </div>
       </div>
@@ -69,18 +71,18 @@
   <section class="block" id="about">
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">01</span><h2>cat whoami.txt</h2><span class="rule"></span></div>
-      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;">
+      <div class="about-grid">
         <div class="prose-warm reveal">
           <p>I lead engineering teams, and the part I actually care about is whether the people on them are doing the best work of their careers — and enjoying it. My philosophy is simple: <strong>happy engineers are productive engineers.</strong> I've seen what happens when that's true: a team that holds together through a rough pivot instead of scattering, people who tell you — unprompted — that this is the best job they've had. That's the number I actually track, even if it doesn't fit on a dashboard.</p>
           <p>I'm a hands-on EM, which mostly means I've refused to become a full-time meeting attendee. I still write code, I run agentic development workflows with Claude Code daily, and I've authored internal Claude skills my team uses for codebase onboarding. I stay close enough to the work to make good technical calls and clear obstacles fast, without getting in the team's way.</p>
           <p>What actually keeps me here is simpler than any of the job titles: <strong>I like to tinker.</strong> I like the moment a tangled system — or a tangled team — finally clicks into something you can reason about. I like deleting a workaround. I learn by building, breaking, and rebuilding, which is also why I run a Kubernetes homelab in my spare time, and pair agentic workflows with real infrastructure to reverse-engineer decade-old codebases nobody's touched in years.</p>
           <!-- resume.html not yet polished — re-enable this link when it's ready
-          <a href="resume.html" class="res-link" style="margin-top:6px;">cat resume.html — the detailed CV, with the receipts <span class="arr">▸</span></a>
+          <a href="resume.html" class="res-link">cat resume.html — the detailed CV, with the receipts <span class="arr">▸</span></a>
           -->
         </div>
-        <div class="reveal" data-d="1" style="display:flex;flex-direction:column;gap:12px;">
+        <div class="reveal about-sidebar" data-d="1">
           <div class="kicker"><span class="sym">▸</span> what I reach for</div>
-          <div class="chips" style="gap:9px;">
+          <div class="chips lg-gap">
             <span class="chip">TypeScript</span>
             <span class="chip">Python</span>
             <span class="chip">AWS</span>
@@ -89,8 +91,8 @@
             <span class="chip">GitHub Actions</span>
             <span class="chip">Datadog</span>
           </div>
-          <div class="kicker" style="margin-top:14px;"><span class="sym">▸</span> currently</div>
-          <p class="dim" style="font-size:15px;line-height:1.6;margin:0;">I'm currently leading a team of backend engineers working on card payment transactions at Enfuce. Tinkering with my homelab.</p>
+          <div class="kicker mt-sm"><span class="sym">▸</span> currently</div>
+          <p class="currently-note">I'm currently leading a team of backend engineers working on card payment transactions at Enfuce. Tinkering with my homelab.</p>
         </div>
       </div>
     </div>
@@ -103,17 +105,17 @@
       <div class="principles">
         <div class="principle reveal">
           <span class="pn">01</span>
-          <h4>Ship things that work</h4>
+          <h3>Ship things that work</h3>
           <p>I'd rather deliver something solid and real than something perfect and theoretical. Working software, in front of people, beats a beautiful plan every time.</p>
         </div>
         <div class="principle reveal" data-d="1">
           <span class="pn">02</span>
-          <h4>Untangle the mess</h4>
+          <h3>Untangle the mess</h3>
           <p>I'm drawn to the gnarly, undocumented, tightly-coupled financial systems nobody wants to open — invoicing, ledgers, settlement flows — and to the teams going through a rough patch. Making both legible again is the part I genuinely enjoy.</p>
         </div>
         <div class="principle reveal" data-d="2">
           <span class="pn">03</span>
-          <h4>Stay hands-on</h4>
+          <h3>Stay hands-on</h3>
           <p>Titles change; the urge to tinker doesn't. I lead best when I'm still close to the code, the infra, and the people doing the work.</p>
         </div>
       </div>
@@ -125,7 +127,7 @@
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">03</span><h2>ls ~/tinkering</h2><span class="rule"></span></div>
 
-      <a href="homelab.html" class="work-feat reveal" style="text-decoration:none;color:inherit;">
+      <a href="homelab.html" class="work-feat reveal">
         <div class="body">
           <span class="star">★ the one I'm proudest of</span>
           <h3>My Kubernetes homelab</h3>
@@ -137,16 +139,16 @@
             <span class="chip">Prometheus + Grafana</span>
             <span class="chip">SOPS</span>
           </div>
-          <span class="btn" style="align-self:flex-start;margin-top:6px;">Take the tour <span class="arr">▸</span></span>
+          <span class="btn card-cta">Take the tour <span class="arr">▸</span></span>
         </div>
         <div class="visual">
           <div class="slot-ph"><span><span class="ic">◧</span>Add architecture diagram<br/>or homelab screenshot</span></div>
           <!-- swap the div above for: <img src="assets/homelab.jpg" alt="Homelab dashboard" /> -->
         </div>
       </a>
-      <a href="https://github.com/lukadimnik/homelab" class="res-link" target="_blank" rel="noopener" style="margin-top:14px;">github.com/lukadimnik/homelab <span class="arr">▸</span></a>
+      <a href="https://github.com/lukadimnik/homelab" class="res-link gap-lg" target="_blank" rel="noopener">github.com/lukadimnik/homelab <span class="arr">▸</span></a>
 
-      <div class="work-grid cols-3" style="margin-top:32px;">
+      <div class="work-grid cols-3">
         <div class="card work-card reveal">
           <div class="tagrow">▸ at work</div>
           <h4>Built a team people didn't want to leave</h4>
@@ -172,7 +174,7 @@
   <!-- ============ CONTACT ============ -->
   <section class="block contact" id="contact">
     <div class="wrap">
-      <div class="kicker reveal" style="justify-content:center;margin-bottom:24px;"><span class="sym">➜</span> ~ ./say-hi</div>
+      <div class="kicker reveal center"><span class="sym">➜</span> ~ ./say-hi</div>
       <h2 class="reveal" data-d="1">Let's build something<br/><span class="accent">that works.</span></h2>
       <p class="lede reveal" data-d="2">Always happy to trade notes with other engineering leaders — on team health, fintech systems, agentic workflows, or homelab rabbit holes. I'm friendliest over email — say hi and tell me what you're building.</p>
       <div class="contact-links reveal" data-d="3">

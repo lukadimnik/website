@@ -7,6 +7,12 @@
 <meta name="description" content="Case study: a self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
 <meta name="theme-color" content="#181f1a" />
 
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kubernetes Homelab — Case Study · Luka Dimnik" />
+<meta property="og:description" content="A self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
+<meta property="og:url" content="https://lukadimnik.com/homelab.html" />
+<link rel="canonical" href="https://lukadimnik.com/homelab.html" />
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318231c'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-size='36' font-family='monospace' font-weight='700' fill='%237bdc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +28,7 @@
     <a href="index.html" class="brand"><span class="u">luka</span><span class="at">@</span><span class="h">dimnik</span><span class="at">:~$</span><span class="cur"></span></a>
     <nav class="nav-links">
       <a href="index.html#work"><span class="hash">#</span>tinkering</a>
-      <a href="index.html#contact" class="btn nav-cta" style="padding:9px 16px;">Say hi</a>
+      <a href="index.html#contact" class="btn nav-cta">Say hi</a>
     </nav>
   </div>
 </header>
@@ -32,7 +38,7 @@
   <section class="cs-hero">
     <div class="wrap">
       <a href="index.html#work" class="cs-back reveal in"><span class="arr">◂</span> back to tinkering</a>
-      <div class="kicker reveal" style="margin-top:26px;"><span class="sym">➜</span> ~/tinkering/k8s-homelab · git show</div>
+      <div class="kicker reveal mt-lg"><span class="sym">➜</span> ~/tinkering/k8s-homelab · git show</div>
       <h1 class="cs-title reveal" data-d="1">Kubernetes Homelab</h1>
       <p class="cs-sub reveal" data-d="2">A self-hosted, <strong>enterprise-grade GitOps platform</strong> — built to keep production instincts sharp: immutable infrastructure, declarative everything, secure secrets, and monitoring that would pass a real on-call rotation.</p>
       <div class="cs-facts reveal" data-d="3">
@@ -46,7 +52,7 @@
   </section>
 
   <!-- ============ DIAGRAM ============ -->
-  <section class="block tight" style="padding-top:0;">
+  <section class="block tight flush-top">
     <div class="wrap reveal">
       <div class="cs-diagram">
         <div class="bar"><span class="accent">▸</span> architecture.excalidraw — add diagram or cluster screenshot</div>
@@ -87,22 +93,22 @@
       <div class="pillars">
         <div class="pillar reveal">
           <div class="n">01 · GitOps &amp; declarative infra</div>
-          <h4>The repo is the cluster</h4>
+          <h3>The repo is the cluster</h3>
           <p>Flux reconciles the live cluster against Git continuously. Helm releases are standardized and version-pinned; environments are provisioned through reusable Terraform modules rather than ad-hoc setup.</p>
         </div>
         <div class="pillar reveal" data-d="1">
           <div class="n">02 · Lightweight by design</div>
-          <h4>Ubuntu Server + k3s</h4>
+          <h3>Ubuntu Server + k3s</h3>
           <p>Nodes run plain Ubuntu Server with k3s on top — a stripped-down Kubernetes distribution built for edge and resource-constrained environments. Same API as full-fat Kubernetes, a fraction of the footprint, which matters when the "data center" is a shelf in a closet.</p>
         </div>
         <div class="pillar reveal">
           <div class="n">03 · Observability</div>
-          <h4>End-to-end monitoring</h4>
+          <h3>End-to-end monitoring</h3>
           <p>A complete monitoring and alerting architecture built on Prometheus and Grafana — metrics, dashboards and alert rules designed to surface problems the way they would on a real on-call rotation.</p>
         </div>
         <div class="pillar reveal" data-d="1">
           <div class="n">04 · Secrets &amp; automation</div>
-          <h4>Secure &amp; self-maintaining</h4>
+          <h3>Secure &amp; self-maintaining</h3>
           <p>Secrets are encrypted in Git with SOPS. Renovate keeps images and charts current, with AI-assisted changelog review on the updates — so maintenance is continuous and low-touch instead of a quarterly scramble.</p>
         </div>
       </div>
@@ -134,7 +140,7 @@
   <section class="block tight">
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">05</span><h2>cat stack.txt</h2><span class="rule"></span></div>
-      <div class="cs-prose reveal" style="max-width:820px;">
+      <div class="cs-prose reveal wide">
         <div class="codeblock">
 <span class="c"># platform</span><br/>
 os/runtime    = <span class="k">Ubuntu Server</span> · <span class="k">k3s</span> · <span class="k">Kubernetes</span><br/>
@@ -146,7 +152,7 @@ observability = <span class="k">Prometheus</span> · <span class="k">Grafana</sp
 secrets       = <span class="k">SOPS</span> (encrypted-in-git)<br/>
 automation    = <span class="k">Renovate</span> · AI changelog review
         </div>
-        <div class="chips" style="margin-top:24px;">
+        <div class="chips mt-lg">
           <span class="chip">Ubuntu Server</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
         </div>
       </div>
@@ -160,15 +166,15 @@ automation    = <span class="k">Renovate</span> · AI changelog review
       <div class="tl reveal">
         <div class="tl-row">
           <div class="tl-when">backlog</div>
-          <div class="tl-main"><h5>Chaos testing</h5><p>Deliberately kill nodes and services to see whether the reconciliation story holds up as well as I think it does.</p></div>
+          <div class="tl-main"><h3>Chaos testing</h3><p>Deliberately kill nodes and services to see whether the reconciliation story holds up as well as I think it does.</p></div>
         </div>
         <div class="tl-row">
           <div class="tl-when">backlog</div>
-          <div class="tl-main"><h5>Cost &amp; power tracking</h5><p>A small dashboard for what this hobby actually costs to run — because eventually someone's going to ask.</p></div>
+          <div class="tl-main"><h3>Cost &amp; power tracking</h3><p>A small dashboard for what this hobby actually costs to run — because eventually someone's going to ask.</p></div>
         </div>
         <div class="tl-row">
           <div class="tl-when">someday</div>
-          <div class="tl-main"><h5>Multi-cluster</h5><p>A second, smaller cluster to practice cross-cluster failover — the kind of thing you only get to do for real once.</p></div>
+          <div class="tl-main"><h3>Multi-cluster</h3><p>A second, smaller cluster to practice cross-cluster failover — the kind of thing you only get to do for real once.</p></div>
         </div>
       </div>
     </div>
