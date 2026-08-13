@@ -71,8 +71,8 @@
       <div class="sec-head reveal"><span class="idx">01</span><h2>cat whoami.txt</h2><span class="rule"></span></div>
       <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,72px);align-items:start;">
         <div class="prose-warm reveal">
-          <p>I lead engineering teams, and the part I actually care about is whether the people on them are doing the best work of their careers — and enjoying it. My philosophy is embarrassingly simple: <strong>happy engineers are productive engineers.</strong> I've seen what happens when that's true: a team that holds together through a rough pivot instead of scattering, people who tell you — unprompted — that this is the best job they've had. That's the number I actually track, even if it doesn't fit on a dashboard.</p>
-          <p>I'm a hands-on EM, which mostly means I never got around to putting the keyboard down. I still write code, I run agentic development workflows with Claude Code daily, and I've authored internal Claude skills my team uses for codebase onboarding. I stay close enough to the work to make good technical calls and clear obstacles fast, without getting in the team's way.</p>
+          <p>I lead engineering teams, and the part I actually care about is whether the people on them are doing the best work of their careers — and enjoying it. My philosophy is simple: <strong>happy engineers are productive engineers.</strong> I've seen what happens when that's true: a team that holds together through a rough pivot instead of scattering, people who tell you — unprompted — that this is the best job they've had. That's the number I actually track, even if it doesn't fit on a dashboard.</p>
+          <p>I'm a hands-on EM, which mostly means I've refused to become a full-time meeting attendee. I still write code, I run agentic development workflows with Claude Code daily, and I've authored internal Claude skills my team uses for codebase onboarding. I stay close enough to the work to make good technical calls and clear obstacles fast, without getting in the team's way.</p>
           <p>What actually keeps me here is simpler than any of the job titles: <strong>I like to tinker.</strong> I like the moment a tangled system — or a tangled team — finally clicks into something you can reason about. I like deleting a workaround. I learn by building, breaking, and rebuilding, which is also why I run a Kubernetes homelab in my spare time, and pair agentic workflows with real infrastructure to reverse-engineer decade-old codebases nobody's touched in years.</p>
           <!-- resume.html not yet polished — re-enable this link when it's ready
           <a href="resume.html" class="res-link" style="margin-top:6px;">cat resume.html — the detailed CV, with the receipts <span class="arr">▸</span></a>
@@ -109,7 +109,7 @@
         <div class="principle reveal" data-d="1">
           <span class="pn">02</span>
           <h4>Untangle the mess</h4>
-          <p>I'm drawn to the gnarly, undocumented, tightly-coupled financial systems nobody wants to open — invoicing, ledgers, payment rails — and to the teams going through a rough patch. Making both legible again is the part I genuinely enjoy.</p>
+          <p>I'm drawn to the gnarly, undocumented, tightly-coupled financial systems nobody wants to open — invoicing, ledgers, settlement flows — and to the teams going through a rough patch. Making both legible again is the part I genuinely enjoy.</p>
         </div>
         <div class="principle reveal" data-d="2">
           <span class="pn">03</span>
@@ -131,7 +131,7 @@
           <h3>My Kubernetes homelab</h3>
           <p>What happens when "I'll just self-host one thing" gets out of hand. A fully declarative, GitOps-driven platform built the way a real org would — Terraform-provisioned, secret-managed, monitored end to end. It's my playground for staying sharp on Linux, Docker and GitOps, and the clearest window into how I think about infrastructure.</p>
           <div class="chips">
-            <span class="chip">Talos Linux / k3s</span>
+            <span class="chip">Ubuntu Server / k3s</span>
             <span class="chip">Flux</span>
             <span class="chip">Terraform</span>
             <span class="chip">Prometheus + Grafana</span>
@@ -144,15 +144,22 @@
           <!-- swap the div above for: <img src="assets/homelab.jpg" alt="Homelab dashboard" /> -->
         </div>
       </a>
+      <a href="https://github.com/lukadimnik/homelab" class="res-link" target="_blank" rel="noopener" style="margin-top:14px;">github.com/lukadimnik/homelab <span class="arr">▸</span></a>
 
-      <div class="work-grid">
+      <div class="work-grid cols-3" style="margin-top:32px;">
         <div class="card work-card reveal">
+          <div class="tagrow">▸ at work</div>
+          <h4>Built a team people didn't want to leave</h4>
+          <p>One team I led topped the internal engagement survey across a ~50-engineer org — the actual metric I was chasing, disguised as an HR number. Getting there had nothing to do with perks: it was 1:1s that weren't status updates, roadmaps people helped write, and shielding the team from noise without hiding the context that mattered.</p>
+          <div class="chips"><span class="chip">1:1s</span><span class="chip">Team health</span></div>
+        </div>
+        <div class="card work-card reveal" data-d="1">
           <div class="tagrow">▸ at work</div>
           <h4>Made deploys boring</h4>
           <p>Turned biweekly, hold-your-breath releases into daily, forgettable ones — a CI/CD pipeline the whole team could trust, with isolated dev environments and 14 repos brought along for the ride.</p>
           <div class="chips"><span class="chip">GitHub Actions</span><span class="chip">Terraform</span></div>
         </div>
-        <div class="card work-card reveal" data-d="1">
+        <div class="card work-card reveal" data-d="2">
           <div class="tagrow">▸ at work</div>
           <h4>Untangled a decade-old monolith</h4>
           <p>Carved a clean cost service out of a tightly-coupled Java&nbsp;8 monolith using strangler-fig and a lot of patience — reverse-engineering business rules nobody had written down.</p>
@@ -167,7 +174,7 @@
     <div class="wrap">
       <div class="kicker reveal" style="justify-content:center;margin-bottom:24px;"><span class="sym">➜</span> ~ ./say-hi</div>
       <h2 class="reveal" data-d="1">Let's build something<br/><span class="accent">that works.</span></h2>
-      <p class="lede reveal" data-d="2">I'm friendliest over email — say hi and tell me what you're building.</p>
+      <p class="lede reveal" data-d="2">Always happy to trade notes with other engineering leaders — on team health, fintech systems, agentic workflows, or homelab rabbit holes. I'm friendliest over email — say hi and tell me what you're building.</p>
       <div class="contact-links reveal" data-d="3">
         <a class="clink" href="mailto:luka.dimnik@protonmail.com">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>

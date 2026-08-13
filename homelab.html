@@ -40,6 +40,7 @@
         <div class="f"><div class="k">// timeline</div><div class="v">2026 — present</div></div>
         <div class="f"><div class="k">// where</div><div class="v">Helsinki, FI · self-hosted</div></div>
         <div class="f"><div class="k">// status</div><div class="v acc">● live &amp; evolving</div></div>
+        <div class="f"><div class="k">// repo</div><div class="v"><a href="https://github.com/lukadimnik/homelab" target="_blank" rel="noopener" class="accent">github.com/lukadimnik/homelab ▸</a></div></div>
       </div>
     </div>
   </section>
@@ -90,9 +91,9 @@
           <p>Flux reconciles the live cluster against Git continuously. Helm releases are standardized and version-pinned; environments are provisioned through reusable Terraform modules rather than ad-hoc setup.</p>
         </div>
         <div class="pillar reveal" data-d="1">
-          <div class="n">02 · Immutable OS</div>
-          <h4>Talos Linux, no SSH</h4>
-          <p>The nodes run Talos / k3s — an API-managed, immutable OS with no shell to drift. Rebuilding a node is a declarative operation, not a midnight debugging session.</p>
+          <div class="n">02 · Lightweight by design</div>
+          <h4>Ubuntu Server + k3s</h4>
+          <p>Nodes run plain Ubuntu Server with k3s on top — a stripped-down Kubernetes distribution built for edge and resource-constrained environments. Same API as full-fat Kubernetes, a fraction of the footprint, which matters when the "data center" is a shelf in a closet.</p>
         </div>
         <div class="pillar reveal">
           <div class="n">03 · Observability</div>
@@ -136,7 +137,7 @@
       <div class="cs-prose reveal" style="max-width:820px;">
         <div class="codeblock">
 <span class="c"># platform</span><br/>
-os/runtime    = <span class="k">Talos Linux</span> · <span class="k">k3s</span> · <span class="k">Kubernetes</span><br/>
+os/runtime    = <span class="k">Ubuntu Server</span> · <span class="k">k3s</span> · <span class="k">Kubernetes</span><br/>
 gitops        = <span class="k">Flux</span> · <span class="k">Helm</span><br/>
 provisioning  = <span class="k">Terraform</span> (reusable modules)<br/>
 ci/cd         = <span class="k">GitHub Actions</span><br/><br/>
@@ -146,7 +147,7 @@ secrets       = <span class="k">SOPS</span> (encrypted-in-git)<br/>
 automation    = <span class="k">Renovate</span> · AI changelog review
         </div>
         <div class="chips" style="margin-top:24px;">
-          <span class="chip">Talos Linux</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
+          <span class="chip">Ubuntu Server</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
         </div>
       </div>
     </div>
