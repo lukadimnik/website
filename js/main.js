@@ -16,17 +16,33 @@
   /* typed prompt line */
   var typed = document.querySelector("[data-type]");
   if (typed) {
-    var full = typed.getAttribute("data-type");
-    var symHTML = '<span class="sym">➜</span> <span class="dim">~</span> ';
-    var curHTML = '<span class="type-cur"></span>';
+    var full = typed.getAttribute("data-type") || "";
+
+    var sym = document.createElement("span");
+    sym.className = "sym";
+    sym.textContent = "➜";
+    var tilde = document.createElement("span");
+    tilde.className = "dim";
+    tilde.textContent = "~";
+    var textNode = document.createTextNode("");
+    var cursor = document.createElement("span");
+    cursor.className = "type-cur";
+
+    typed.textContent = "";
+    typed.appendChild(sym);
+    typed.appendChild(document.createTextNode(" "));
+    typed.appendChild(tilde);
+    typed.appendChild(document.createTextNode(" "));
+    typed.appendChild(textNode);
+    typed.appendChild(cursor);
+
     if (reduce) {
-      typed.innerHTML = symHTML + full + curHTML;
+      textNode.nodeValue = full;
     } else {
       var i = 0;
-      typed.innerHTML = symHTML + curHTML;
       var tick = function () {
         i++;
-        typed.innerHTML = symHTML + full.slice(0, i) + curHTML;
+        textNode.nodeValue = full.slice(0, i);
         if (i < full.length) setTimeout(tick, 34 + Math.random() * 36);
       };
       setTimeout(tick, 520);
