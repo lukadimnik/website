@@ -65,10 +65,9 @@
   <section class="block tight flush-top">
     <div class="wrap reveal">
       <div class="cs-diagram">
-        <div class="bar"><span class="accent">▸</span> architecture.excalidraw — add diagram or cluster screenshot</div>
+        <div class="bar"><span class="accent">▸</span> architecture.excalidraw — git → flux → k3s reconciliation loop</div>
         <div class="stage">
-          <div class="slot-ph"><span><span class="ic">◫</span>Add architecture diagram<br/>or a Grafana / cluster screenshot</span></div>
-          <!-- swap the div above for: <img src="assets/homelab-diagram.png" alt="Homelab architecture diagram" /> -->
+          <img src="assets/homelab-diagram.svg" alt="Diagram of the homelab's GitOps reconciliation loop: a Git repo is the source of truth; Flux reconciles it into a k3s cluster running eight namespaces, including kube-system, flux-system, monitoring, renovate, linkding, audiobookshelf, homepage and website; the in-cluster Renovate CronJob scans the repo hourly and opens pull requests back into it, closing the loop; SOPS-encrypted secrets committed to the repo are decrypted by Flux at apply time; Grafana, running in the monitoring namespace, is exposed externally via a Traefik ingress at grafana.lukadimnik.com." />
         </div>
       </div>
     </div>
