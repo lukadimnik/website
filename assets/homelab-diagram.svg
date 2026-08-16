@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1600 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the homelab's GitOps reconciliation loop: a Git repo is the source of truth; Flux reconciles it into a k3s cluster running eight namespaces, including kube-system, flux-system, monitoring, renovate, linkding, audiobookshelf, homepage and website; the in-cluster Renovate CronJob scans the repo hourly and opens pull requests back into it, closing the loop; SOPS-encrypted secrets committed to the repo are decrypted by Flux at apply time; Grafana, running in the monitoring namespace, is exposed externally via a Traefik ingress at grafana.lukadimnik.com.">
+
+  <!-- background, matches the card's bg-soft so it blends with the frame -->
+  <rect x="0" y="0" width="1600" height="800" fill="oklch(0.195 0.006 160)" />
+
+  <defs>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <polygon points="0,0 10,5 0,10" fill="oklch(0.80 0.165 150)" />
+    </marker>
+    <marker id="arrowDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,0 10,5 0,10" fill="oklch(0.70 0.012 155)" />
+    </marker>
+  </defs>
+
+  <!-- ============ ARROWS (drawn first so box fills sit cleanly on top of line ends) ============ -->
+
+  <!-- Cluster (renovate namespace) -> Git repo : opens PR, closes the loop (core loop, accent) -->
+  <line x1="770" y1="222" x2="192" y2="300" stroke="oklch(0.80 0.165 150)" stroke-width="3" marker-end="url(#arrowAccent)" />
+
+  <!-- Git repo -> Flux : push (core loop, accent) -->
+  <line x1="280" y1="360" x2="418" y2="360" stroke="oklch(0.80 0.165 150)" stroke-width="3" marker-end="url(#arrowAccent)" />
+
+  <!-- Flux -> Cluster : reconciles (core loop, accent) -->
+  <line x1="640" y1="360" x2="758" y2="360" stroke="oklch(0.80 0.165 150)" stroke-width="3" marker-end="url(#arrowAccent)" />
+
+  <!-- SOPS -> Git repo : encrypts secrets at rest (secondary, dim) -->
+  <line x1="170" y1="558" x2="170" y2="422" stroke="oklch(0.70 0.012 155)" stroke-width="2.5" marker-end="url(#arrowDim)" />
+
+  <!-- Cluster -> Grafana UI : exposed via Traefik ingress (secondary, dim) -->
+  <line x1="1320" y1="360" x2="1398" y2="360" stroke="oklch(0.70 0.012 155)" stroke-width="2.5" marker-end="url(#arrowDim)" />
+
+  <!-- ============ BOXES ============ -->
+
+  <!-- Git repo -->
+  <rect x="60" y="300" width="220" height="120" rx="16" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+  <!-- Flux -->
+  <rect x="420" y="300" width="220" height="120" rx="16" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+  <!-- SOPS -->
+  <rect x="60" y="560" width="220" height="100" rx="16" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+  <!-- Grafana UI (external endpoint) -->
+  <rect x="1400" y="300" width="180" height="120" rx="16" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+
+  <!-- Cluster (drawn with accent border - this is the mechanism under discussion) -->
+  <rect x="760" y="120" width="560" height="480" rx="22" fill="oklch(0.165 0.006 160)" stroke="oklch(0.80 0.165 150)" stroke-width="2" />
+  <text x="1040" y="168" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace" font-size="26" font-weight="700" fill="oklch(0.93 0.010 150)">K3S CLUSTER</text>
+  <line x1="800" y1="190" x2="1280" y2="190" stroke="oklch(0.30 0.008 160)" stroke-width="1" />
+
+  <!-- namespace chips: 8 real namespaces, 2 cols x 4 rows -->
+  <g font-family="JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace" font-size="17" fill="oklch(0.70 0.012 155)">
+    <!-- row 1: renovate (accent border - this is where the loop-closing arrow originates) + flux-system -->
+    <rect x="800" y="210" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.80 0.165 150)" stroke-width="1.5" />
+    <text x="910" y="251" text-anchor="middle" fill="oklch(0.93 0.010 150)">renovate</text>
+
+    <rect x="1060" y="210" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="1170" y="251" text-anchor="middle">flux-system</text>
+
+    <!-- row 2: kube-system + monitoring -->
+    <rect x="800" y="296" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="910" y="337" text-anchor="middle">kube-system</text>
+
+    <rect x="1060" y="296" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="1170" y="337" text-anchor="middle">monitoring</text>
+
+    <!-- row 3: linkding + audiobookshelf -->
+    <rect x="800" y="382" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="910" y="423" text-anchor="middle">linkding</text>
+
+    <rect x="1060" y="382" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="1170" y="423" text-anchor="middle">audiobookshelf</text>
+
+    <!-- row 4: homepage + website -->
+    <rect x="800" y="468" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="910" y="509" text-anchor="middle">homepage</text>
+
+    <rect x="1060" y="468" width="220" height="70" rx="10" fill="oklch(0.225 0.007 160)" stroke="oklch(0.30 0.008 160)" stroke-width="1.5" />
+    <text x="1170" y="509" text-anchor="middle">website</text>
+  </g>
+
+  <!-- ============ BOX LABELS ============ -->
+  <g font-family="JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace" text-anchor="middle">
+    <text x="170" y="355" font-size="24" font-weight="700" fill="oklch(0.93 0.010 150)">GIT REPO</text>
+    <text x="170" y="385" font-size="16" fill="oklch(0.52 0.010 155)">source of truth</text>
+
+    <text x="530" y="355" font-size="24" font-weight="700" fill="oklch(0.93 0.010 150)">FLUX</text>
+    <text x="530" y="385" font-size="16" fill="oklch(0.52 0.010 155)">GitOps reconciler</text>
+
+    <text x="170" y="605" font-size="22" font-weight="700" fill="oklch(0.93 0.010 150)">SOPS + AGE</text>
+    <text x="170" y="633" font-size="15" fill="oklch(0.52 0.010 155)">encrypts secrets</text>
+
+    <text x="1490" y="350" font-size="20" font-weight="700" fill="oklch(0.93 0.010 150)">GRAFANA</text>
+    <text x="1490" y="378" font-size="12" fill="oklch(0.52 0.010 155)">grafana.lukadimnik.com</text>
+  </g>
+
+  <!-- ============ ARROW LABELS (drawn last, always legible) ============ -->
+  <g font-family="JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace">
+    <text x="480" y="212" font-size="17" fill="oklch(0.80 0.165 150)" text-anchor="middle">renovate ▸ opens PR</text>
+    <text x="480" y="234" font-size="13" fill="oklch(0.52 0.010 155)" text-anchor="middle">hourly scan of this repo</text>
+
+    <text x="350" y="345" font-size="18" fill="oklch(0.80 0.165 150)" text-anchor="middle">push ▸</text>
+    <text x="700" y="345" font-size="18" fill="oklch(0.80 0.165 150)" text-anchor="middle">reconciles ▸</text>
+
+    <text x="185" y="490" font-size="15" fill="oklch(0.70 0.012 155)">encrypts secrets ▸</text>
+    <text x="1360" y="345" font-size="15" fill="oklch(0.70 0.012 155)" text-anchor="middle">Traefik ▸</text>
+  </g>
+</svg>

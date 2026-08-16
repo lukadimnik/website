@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kubernetes Homelab — Case Study · Luka Dimnik</title>
-<meta name="description" content="Case study: a self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
+<meta name="description" content="Case study: a self-hosted, immutable, declarative Kubernetes platform built with GitOps, Flux and Prometheus." />
 <meta name="theme-color" content="#181f1a" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Kubernetes Homelab — Case Study · Luka Dimnik" />
-<meta property="og:description" content="A self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
+<meta property="og:description" content="A self-hosted, immutable, declarative Kubernetes platform built with GitOps, Flux and Prometheus." />
 <meta property="og:url" content="https://lukadimnik.com/homelab.html" />
 <meta property="og:image" content="https://lukadimnik.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="Luka Dimnik — Engineering Manager & Software Engineer" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Kubernetes Homelab — Case Study · Luka Dimnik" />
-<meta name="twitter:description" content="A self-hosted, immutable, declarative Kubernetes platform built with GitOps, Terraform, Flux and Prometheus." />
+<meta name="twitter:description" content="A self-hosted, immutable, declarative Kubernetes platform built with GitOps, Flux and Prometheus." />
 <meta name="twitter:image" content="https://lukadimnik.com/assets/og-image.png" />
 <link rel="canonical" href="https://lukadimnik.com/homelab.html" />
 
@@ -65,10 +65,9 @@
   <section class="block tight flush-top">
     <div class="wrap reveal">
       <div class="cs-diagram">
-        <div class="bar"><span class="accent">▸</span> architecture.excalidraw — add diagram or cluster screenshot</div>
+        <div class="bar"><span class="accent">▸</span> architecture.excalidraw — git → flux → k3s reconciliation loop</div>
         <div class="stage">
-          <div class="slot-ph"><span><span class="ic">◫</span>Add architecture diagram<br/>or a Grafana / cluster screenshot</span></div>
-          <!-- swap the div above for: <img src="assets/homelab-diagram.png" alt="Homelab architecture diagram" /> -->
+          <img src="assets/homelab-diagram.svg" alt="Diagram of the homelab's GitOps reconciliation loop: a Git repo is the source of truth; Flux reconciles it into a k3s cluster running eight namespaces, including kube-system, flux-system, monitoring, renovate, linkding, audiobookshelf, homepage and website; the in-cluster Renovate CronJob scans the repo hourly and opens pull requests back into it, closing the loop; SOPS-encrypted secrets committed to the repo are decrypted by Flux at apply time; Grafana, running in the monitoring namespace, is exposed externally via a Traefik ingress at grafana.lukadimnik.com." />
         </div>
       </div>
     </div>
@@ -90,7 +89,7 @@
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">02</span><h2>// why bother</h2><span class="rule"></span></div>
       <div class="cs-prose reveal">
-        <p>I could run everything on one box with a docker-compose file and call it a day. I don't, on purpose. As an EM, I don't get to spend every day heads-down in Terraform and Kubernetes manifests, so I built myself a place where I still do. Every constraint I add here (no SSH, no manual kubectl apply, no plaintext secrets) is one I'd defend in a design review at work, and it keeps those instincts sharp for when a team actually needs them.</p>
+        <p>I could run everything on one box with a docker-compose file and call it a day. I don't, on purpose. As an EM, I don't get to spend every day heads-down in Kubernetes manifests, so I built myself a place where I still do. Every constraint I add here (no SSH, no manual kubectl apply, no plaintext secrets) is one I'd defend in a design review at work, and it keeps those instincts sharp for when a team actually needs them.</p>
         <p>It's also just genuinely fun to be the one holding the pager for your own infrastructure. When something breaks at 11pm, there's no one else to escalate to, which has taught me more about failure modes than any postmortem I've read.</p>
       </div>
     </div>
@@ -104,7 +103,7 @@
         <div class="pillar reveal">
           <div class="n">01 · GitOps &amp; declarative infra</div>
           <h3>The repo is the cluster</h3>
-          <p>Flux reconciles the live cluster against Git continuously. Helm releases are standardized and version-pinned; environments are provisioned through reusable Terraform modules rather than ad-hoc setup.</p>
+          <p>Flux reconciles the live cluster against Git continuously. Helm releases are standardized and version-pinned; every environment follows the same Kustomize base/overlay pattern rather than ad-hoc setup.</p>
         </div>
         <div class="pillar reveal" data-d="1">
           <div class="n">02 · Lightweight by design</div>
@@ -154,16 +153,14 @@
         <div class="codeblock">
 <span class="c"># platform</span><br/>
 os/runtime    = <span class="k">Ubuntu Server</span> · <span class="k">k3s</span> · <span class="k">Kubernetes</span><br/>
-gitops        = <span class="k">Flux</span> · <span class="k">Helm</span><br/>
-provisioning  = <span class="k">Terraform</span> (reusable modules)<br/>
-ci/cd         = <span class="k">GitHub Actions</span><br/><br/>
+gitops        = <span class="k">Flux</span> · <span class="k">Helm</span><br/><br/>
 <span class="c"># operations</span><br/>
 observability = <span class="k">Prometheus</span> · <span class="k">Grafana</span><br/>
 secrets       = <span class="k">SOPS</span> (encrypted-in-git)<br/>
 automation    = <span class="k">Renovate</span> · AI changelog review
         </div>
         <div class="chips mt-lg">
-          <span class="chip">Ubuntu Server</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
+          <span class="chip">Ubuntu Server</span><span class="chip">k3s</span><span class="chip">Kubernetes</span><span class="chip">Flux</span><span class="chip">Helm</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">SOPS</span><span class="chip">Renovate</span>
         </div>
       </div>
     </div>
