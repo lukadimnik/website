@@ -50,7 +50,7 @@
       <a href="index.html#work" class="cs-back reveal in"><span class="arr">◂</span> back to tinkering</a>
       <div class="kicker reveal mt-lg"><span class="sym">➜</span> ~/tinkering/k8s-homelab · git show</div>
       <h1 class="cs-title reveal" data-d="1">Kubernetes Homelab</h1>
-      <p class="cs-sub reveal" data-d="2">A self-hosted, <strong>enterprise-grade GitOps platform</strong> — built to keep production instincts sharp: immutable infrastructure, declarative everything, secure secrets, and monitoring that would pass a real on-call rotation.</p>
+      <p class="cs-sub reveal" data-d="2">A self-hosted, <strong>enterprise-grade GitOps platform</strong>, built to keep production instincts sharp: immutable infrastructure, declarative everything, secure secrets, and monitoring that would pass a real on-call rotation.</p>
       <div class="cs-facts reveal" data-d="3">
         <div class="f"><div class="k">// role</div><div class="v">Solo — design &amp; build</div></div>
         <div class="f"><div class="k">// timeline</div><div class="v">2026 — present</div></div>
@@ -79,8 +79,8 @@
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">01</span><h2>// overview</h2><span class="rule"></span></div>
       <div class="cs-prose reveal">
-        <p>Most homelabs are a pile of <code>docker run</code> commands no one can reproduce. I wanted the opposite: a platform run exactly the way a disciplined org would run production — so the muscle memory transfers directly to the platform work I do for teams.</p>
-        <p>The result is an <strong>immutable, declarative</strong> Kubernetes platform where the Git repository is the single source of truth. Nothing is changed by hand. Push to <code>main</code>, and the cluster reconciles itself toward the desired state — including its own OS, its workloads, its monitoring, and its secrets.</p>
+        <p>Most homelabs are a pile of <code>docker run</code> commands no one can reproduce. I wanted the opposite: a platform run exactly the way a disciplined org would run production, so the muscle memory transfers directly to the platform work I do for teams.</p>
+        <p>The result is an <strong>immutable, declarative</strong> Kubernetes platform where the Git repository is the single source of truth. Nothing is changed by hand. Push to <code>main</code>, and the cluster reconciles itself toward the desired state, including its own OS, its workloads, its monitoring, and its secrets.</p>
       </div>
     </div>
   </section>
@@ -90,8 +90,8 @@
     <div class="wrap">
       <div class="sec-head reveal"><span class="idx">02</span><h2>// why bother</h2><span class="rule"></span></div>
       <div class="cs-prose reveal">
-        <p>I could run everything on one box with a docker-compose file and call it a day. I don't, on purpose. As an EM, I don't get to spend every day heads-down in Terraform and Kubernetes manifests — so I built myself a place where I still do. Every constraint I add here (no SSH, no manual kubectl apply, no plaintext secrets) is one I'd defend in a design review at work, and it keeps those instincts sharp for when a team actually needs them.</p>
-        <p>It's also just genuinely fun to be the one holding the pager for your own infrastructure. When something breaks at 11pm, there's no one else to escalate to — which has taught me more about failure modes than any postmortem I've read.</p>
+        <p>I could run everything on one box with a docker-compose file and call it a day. I don't, on purpose. As an EM, I don't get to spend every day heads-down in Terraform and Kubernetes manifests, so I built myself a place where I still do. Every constraint I add here (no SSH, no manual kubectl apply, no plaintext secrets) is one I'd defend in a design review at work, and it keeps those instincts sharp for when a team actually needs them.</p>
+        <p>It's also just genuinely fun to be the one holding the pager for your own infrastructure. When something breaks at 11pm, there's no one else to escalate to, which has taught me more about failure modes than any postmortem I've read.</p>
       </div>
     </div>
   </section>
@@ -109,17 +109,17 @@
         <div class="pillar reveal" data-d="1">
           <div class="n">02 · Lightweight by design</div>
           <h3>Ubuntu Server + k3s</h3>
-          <p>Nodes run plain Ubuntu Server with k3s on top — a stripped-down Kubernetes distribution built for edge and resource-constrained environments. Same API as full-fat Kubernetes, a fraction of the footprint, which matters when the "data center" is a shelf in a closet.</p>
+          <p>Nodes run plain Ubuntu Server with k3s on top, a stripped-down Kubernetes distribution built for edge and resource-constrained environments. Same API as full-fat Kubernetes, a fraction of the footprint, which matters when the "data center" is a shelf in a closet.</p>
         </div>
         <div class="pillar reveal">
           <div class="n">03 · Observability</div>
           <h3>End-to-end monitoring</h3>
-          <p>A complete monitoring and alerting architecture built on Prometheus and Grafana — metrics, dashboards and alert rules designed to surface problems the way they would on a real on-call rotation.</p>
+          <p>A complete monitoring and alerting architecture built on Prometheus and Grafana, metrics, dashboards and alert rules designed to surface problems the way they would on a real on-call rotation.</p>
         </div>
         <div class="pillar reveal" data-d="1">
           <div class="n">04 · Secrets &amp; automation</div>
           <h3>Secure &amp; self-maintaining</h3>
-          <p>Secrets are encrypted in Git with SOPS. Renovate keeps images and charts current, with AI-assisted changelog review on the updates — so maintenance is continuous and low-touch instead of a quarterly scramble.</p>
+          <p>Secrets are encrypted in Git with SOPS. Renovate keeps images and charts current, with AI-assisted changelog review on the updates, so maintenance is continuous and low-touch instead of a quarterly scramble.</p>
         </div>
       </div>
     </div>
@@ -176,15 +176,19 @@ automation    = <span class="k">Renovate</span> · AI changelog review
       <div class="tl reveal">
         <div class="tl-row">
           <div class="tl-when">backlog</div>
-          <div class="tl-main"><h3>Chaos testing</h3><p>Deliberately kill nodes and services to see whether the reconciliation story holds up as well as I think it does.</p></div>
+          <div class="tl-main"><h3>Cost &amp; power tracking</h3><p>A small dashboard for what this hobby actually costs to run, because eventually someone's going to ask.</p></div>
         </div>
         <div class="tl-row">
           <div class="tl-when">backlog</div>
-          <div class="tl-main"><h3>Cost &amp; power tracking</h3><p>A small dashboard for what this hobby actually costs to run — because eventually someone's going to ask.</p></div>
+          <div class="tl-main"><h3>Stateful workloads</h3><p>Add persistent storage and start hosting a few personal databases, then see how the backup and restore story holds up under real data.</p></div>
         </div>
         <div class="tl-row">
           <div class="tl-when">someday</div>
-          <div class="tl-main"><h3>Multi-cluster</h3><p>A second, smaller cluster to practice cross-cluster failover — the kind of thing you only get to do for real once.</p></div>
+          <div class="tl-main"><h3>GPU workloads</h3><p>NVIDIA device plugin for Kubernetes, with Ollama running Llama 3 on the 1080 Ti, scheduled via node affinity, and a small app consuming the inference endpoint, deployed through Flux.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-when">someday</div>
+          <div class="tl-main"><h3>IaC for the nodes</h3><p>Ansible playbooks that install k3s, configure UFW, set up SSH keys, and join workers, with the goal of provisioning a bare-metal node from scratch with a single command.</p></div>
         </div>
       </div>
     </div>
@@ -194,7 +198,7 @@ automation    = <span class="k">Renovate</span> · AI changelog review
   <section class="block contact" id="contact">
     <div class="wrap">
       <h2 class="reveal">Want this discipline<br/><span class="accent">on your platform?</span></h2>
-      <p class="lede reveal" data-d="1">This is how I approach real systems too — declarative, observable, reproducible.</p>
+      <p class="lede reveal" data-d="1">This is how I approach real systems too: declarative, observable, reproducible.</p>
       <div class="contact-links reveal" data-d="2">
         <a class="clink" href="mailto:luka.dimnik@protonmail.com">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
