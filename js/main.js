@@ -13,6 +13,21 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* mobile nav toggle */
+  var navToggle = document.querySelector(".nav-toggle");
+  if (nav && navToggle) {
+    navToggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.querySelectorAll(".nav-links a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        nav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
   /* typed prompt line */
   var typed = document.querySelector("[data-type]");
   if (typed) {
