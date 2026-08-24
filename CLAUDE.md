@@ -20,7 +20,7 @@ docker run --rm -p 8080:80 lukadimnik-website  # serves at http://localhost:8080
 
 ## Architecture
 
-**Pages:** `index.html` (landing/whoami), `homelab.html` (Kubernetes case study), `resume.html` (résumé). Each is self-contained HTML referencing the shared CSS and JS.
+**Pages:** `index.html` (landing/whoami), `homelab.html` (Kubernetes case study). Each is self-contained HTML referencing the shared CSS and JS.
 
 **`css/styles.css`** — single stylesheet with all design tokens (CSS custom properties), layout, and component styles. Terminal-inspired aesthetic with a dark theme.
 

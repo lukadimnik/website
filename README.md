@@ -1,6 +1,6 @@
 # lukadimnik.com
 
-Personal website for Luka Dimnik — engineering manager and software engineer. A narrative "whoami" landing page, a Kubernetes homelab case study, and a detailed résumé, all sharing one terminal-inspired design system.
+Personal website for Luka Dimnik — engineering manager and software engineer. A narrative "whoami" landing page and a Kubernetes homelab case study, sharing one terminal-inspired design system.
 
 Static site, no build step, no framework.
 
@@ -10,7 +10,6 @@ Static site, no build step, no framework.
 .
 ├── index.html      # Landing page — whoami, how I work, tinkering, contact
 ├── homelab.html    # Kubernetes homelab case study
-├── resume.html     # Detailed résumé / experience page
 ├── css/
 │   └── styles.css  # All styling (design tokens, layout, components)
 ├── js/
